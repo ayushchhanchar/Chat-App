@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Social media</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <style>
+    body {
+      font-family: gilroy;
+    }
+
+    .pic {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 6px solid #dadada;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      object-position: top;
+
+    }
+
+    #pencilicon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: 0px 10px 20px #646464;
+      bottom: 5%;
+      right: 0;
+      opacity: 0;
+
+    }
+
+    .pic:hover #pencilicon {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="fileform" hidden action="/upload" method="post" enctype="multipart/form-data">
+    <input id="inputfile" type="file" name="image" />
+  </form>
+  <div class="container mt-4" style="font-family: gilroy; ">
+    <div class="cards d-flex gap-2">
+      <div class="userdets d-flex">
+        <div class="pic">
+          <i id="pencilicon" class="ri-pencil-line"></i>
+          <img src="/images/uploads/<%=userdata.picture%>" alt="">
+        </div>
+        <div class="textdets mt-2 mx-3">
+          <h3 style="text-transform: capitalize;">
+            <%=userdata.username%>
+          </h3>
+          <h5 style="margin-top: -7px; opacity: 0.6;">India.</h5>
+        </div>
+      </div>
+
+      <!-- <img class="card-img-top" src="<%=userdata.picture%>" alt="Card image cap"> -->
+      
+        <!-- <div class="card-body">
+          <h5 class="card-title"><%=userdata.username%></h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h6><%=userdata.likes.length%> Likes</h6>
+          <a href="/likes/<%=userdata._id%>" class="btn btn-primary">Likes</a>
+        </div> -->
+    </div>
+    <div class="postarea col-4">
+      <h5 style="margin-top: 30px;" class="btn btn-sm btn-primary">Make a post</h5>
+      <form action="#">
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">What's On Your Mind</label>
+          <textarea style="resize: none;" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+    </div>
+    <!-- <a href="/logout">Log out</a> -->
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+   
+</body>
+
+</html>
